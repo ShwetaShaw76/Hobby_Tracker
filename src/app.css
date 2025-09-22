@@ -50,12 +50,17 @@
 		font-weight: 600;
 		font-size: 1.5rem;
 	}
+	.home:hover{
+		text-decoration: underline;
+	}
 	#home{
 		font-weight: 600;
 		font-size: 2rem;
 		align-self: center;
 	}
-
+	.contact:hover{
+		text-decoration: underline;
+	}
 	#contact{
 		font-weight: 600;
 		font-size: 2rem;

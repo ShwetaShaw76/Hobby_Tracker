@@ -20,6 +20,14 @@
 		];
 		return colors[i % colors.length];
 	}
+	let m;
+	let i =0;
+	let tasks=[];
+	let task;
+	function AddTask(){
+		tasks[i] = task;
+		i++;
+	}
 </script>
 
 <main>
@@ -35,7 +43,7 @@
 				</a>
 			</div>
 			<div class="search">
-				<input type="text" placeholder="Search.." id="search">
+				<input type="text" placeholder="Search.." id="search" >
 				<button class="search_button">
 					<span class="material-symbols-outlined" id="srch">search</span>
 				</button>
@@ -46,10 +54,14 @@
 	<div class="content">
 		<div class="list">
 			<div class="task">
-				<input type="text" placeholder="Your Tasks.." id="task">
-				<button class="add_tasks"><span id="add">+</span></button>
+				<input type="text" placeholder="Your Tasks.." id="task" bind:value={task}>
+				<button class="add_tasks" on:click={AddTask}><span id="add">+</span></button>
 			</div>
-			<div class="task_list">Your Tasks will be shown here</div>
+			<div class="task_list"><ul>
+				{#each tasks as t}
+				<li>{t}</li>
+				{/each}
+			</ul></div>
 		</div>
 
 		<div class="silhouette">
