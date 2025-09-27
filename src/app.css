@@ -157,8 +157,8 @@
 	.silhouette{
 		position: relative;
 		display: flex;
-		height: 60vh;
-		width: 35vw;
+		height: 600px;
+		width: 600px;
 		backdrop-filter: blur(5px);
 		border-radius: 20px;
 		border: 1px solid rgba(255,255,255,0.3);
@@ -216,8 +216,8 @@
 		height: 50%;
 		background: var(--clr);
 		transform-origin: bottom right;
-		transform: rotate(calc(var(--i) * 45deg));
-		clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+		transform: rotate(calc((360deg)/var(--i)));
+		clip-path: polygon(0 0, 300% 0, 100% 100%, 0 300%);
 		display: flex;
 		justify-content: center;
 		align-items: center;

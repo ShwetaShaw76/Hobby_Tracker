@@ -20,13 +20,18 @@
 		];
 		return colors[i % colors.length];
 	}
-	let m;
-	let i =0;
+	let m=0;
 	let tasks=[];
 	let task;
 	function AddTask(){
-		tasks[i] = task;
-		i++;
+		tasks[m] = task;
+		m++;
+	}
+
+	function myFuction(e){
+		if(e.key==="Enter" ){
+			AddTask();
+		}
 	}
 </script>
 
@@ -35,10 +40,10 @@
 		<div class="header">
 			<div class="heading">Lucky Chant</div>
 			<div class="icons">
-				<a href="https://google.com" class="home">
+				<a href="./+page.svelte" class="home">
 					<span class="material-symbols-outlined" id="home">home</span> Home
 				</a>
-				<a href="https://google.com" class="contact">
+				<a href="https://github.com/ShwetaShaw76" class="contact">
 					<span class="material-symbols-outlined" id="contact">contact_page</span> Contact Me
 				</a>
 			</div>
@@ -54,8 +59,8 @@
 	<div class="content">
 		<div class="list">
 			<div class="task">
-				<input type="text" placeholder="Your Tasks.." id="task" bind:value={task}>
-				<button class="add_tasks" on:click={AddTask}><span id="add">+</span></button>
+				<input type="text" placeholder="Your Tasks.." id="task" bind:value={task} onkeydown={myFuction}>
+				<button class="add_tasks" onclick={AddTask}><span id="add">+</span></button>
 			</div>
 			<div class="task_list"><ul>
 				{#each tasks as t}
@@ -66,11 +71,11 @@
 
 		<div class="silhouette">
 			<div class="circle">
-				<button class="spinBtn" on:click={spinWheel}>spin</button>
+				<button class="spinBtn" onclick={spinWheel}>spin</button>
 				<div class="wheel" bind:this={wheel}>
-					{#each Array(8) as _, i}
+					{#each tasks as task, i}
 						<div class="number" style="--i:{i + 1};--clr:{getColor(i)}">
-							<span>--</span>
+							<span>{task}</span>
 						</div>
 					{/each}
 				</div>
