@@ -74,7 +74,7 @@
 				<button class="spinBtn" onclick={spinWheel}>spin</button>
 				<div class="wheel" bind:this={wheel}>
 					{#each tasks as task, i}
-						<div class="number" style="--i:{i + 1};--clr:{getColor(i)}">
+						<div class="number" style="--i:{i + 1};--total:{tasks.length};--clr:{getColor(i)}">
 							<span>{task}</span>
 						</div>
 					{/each}
@@ -83,9 +83,3 @@
 		</div>
 	</div>
 </main>
-
-
-
-<style>
-	
-</style>

@@ -215,9 +215,9 @@
 		width: 50%;
 		height: 50%;
 		background: var(--clr);
-		transform-origin: bottom right;
-		transform: rotate(calc((360deg)/var(--i)));
-		clip-path: polygon(0 0, 300% 0, 100% 100%, 0 300%);
+		transform-origin: 100% 100%;
+		transform: rotate(calc((var(--i) - 1) * (360deg / var(--total))));
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -225,8 +225,8 @@
 		cursor: pointer;
 	}
 	.wheel .number span{
-		position: relative;
-		transform: rotate(45deg);
+		position: absolute;
+		transform: rotate(calc( (360deg / var(--total)) ));
 		font-size: 1.5em;
 		font-weight: 700;
 		text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
