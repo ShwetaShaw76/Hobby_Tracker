@@ -196,20 +196,25 @@
 		clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
 
 	}
-	.wheel{
-		position: absolute;
-		top: 100px;
-		left: 120px;
-		width: 70%;
-		height: 70%;
-		border-radius: 50%;
-		background: #333;
-		overflow: hidden;
-		box-shadow: 0 0 0 5px #333,
+	.wheel {
+	position: absolute;
+	top: 100px;
+	left: 120px;
+	width: 70%;
+	height: 70%;
+	border-radius: 50%;
+	background: conic-gradient(
+		#db7093 0% 50%,
+		#20b2aa 50% 100%
+	);
+	overflow: hidden;
+	box-shadow: 0 0 0 5px #333,
 		0 0 0 15px #fff,
 		0 0 0 18px #111;
-		transition: transform 5s ease-in-out;
-	}
+	transition: transform 5s ease-in-out;
+}
+
+
 	.number{
 		position: absolute;
 		width: 50%;
@@ -226,8 +231,26 @@
 	}
 	.wheel .number span{
 		position: absolute;
-		transform: rotate(calc( (360deg / var(--total)) ));
+		transform: rotate(calc((var(--i) - 0.5) * (360deg / var(--total))));
 		font-size: 1.5em;
 		font-weight: 700;
 		text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
 	}
+	.label {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	transform: rotate(calc((var(--i) + 0.5) * (360deg / var(--total))));
+}
+
+.label span {
+	transform: rotate(calc(180deg / var(--total)));
+	font-size: 1.5em;
+	font-weight: 700;
+	color: white;
+	text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+

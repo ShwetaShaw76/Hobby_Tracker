@@ -33,6 +33,17 @@
 			AddTask();
 		}
 	}
+
+	$: wheelStyle = `
+	conic-gradient(
+		${tasks.map((t, i) => {
+			const start = (i / tasks.length) * 100;
+			const end = ((i + 1) / tasks.length) * 100;
+			return `${getColor(i)} ${start}% ${end}%`;
+		}).join(",")}
+	)
+`;
+
 </script>
 
 <main>
@@ -72,13 +83,13 @@
 		<div class="silhouette">
 			<div class="circle">
 				<button class="spinBtn" onclick={spinWheel}>spin</button>
-				<div class="wheel" bind:this={wheel}>
-					{#each tasks as task, i}
-						<div class="number" style="--i:{i + 1};--total:{tasks.length};--clr:{getColor(i)}">
-							<span>{task}</span>
-						</div>
-					{/each}
-				</div>
+				<div class="wheel" bind:this={wheel} style="background: {wheelStyle}">
+	{#each tasks as task, i}
+		<div class="label" style="--i:{i}; --total:{tasks.length}">
+			<span>{task}</span>
+		</div>
+	{/each}
+</div>
 			</div>
 		</div>
 	</div>
