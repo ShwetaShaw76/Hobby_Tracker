@@ -25,6 +25,7 @@
 	let task;
 	function AddTask(){
 		tasks[m] = task;
+		task="";
 		m++;
 	}
 
